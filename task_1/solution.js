@@ -56,8 +56,15 @@ function addInCartSumChange(sum, delta) {
     // создайте переменную newSumText и присвойте ей результат склеивания переменной newSum и текста ' ₽'
     let newSumText 
     newSumText = newSum + ' ₽';
+    // шаблонную строку нашел в инете. выдает нижеприведенную ошибку в материалах как это 
+    // делать не нашел. Без шаблонной строки ошибок нет
     // замените склеивание, используемое в newSum Text на шаблонную строку
-    newSumText = `Сумма покупки составляет ${newSum} ₽`;
+    //newSumText = `Сумма покупки составляет ${newSum} ₽`;
+    //Expected 'Сумма покупки составляет 200 ₽' to be '200 ₽'.
+    //Error: Expected 'Сумма покупки составляет 200 ₽' to be '200 ₽'.
+    //at <Jasmine>
+    //at UserContext.<anonymous> (file:///D:/NL/sal-rab-homeworks/lib/task_1.js:63:26)
+    //at <Jasmine>
 
     // Конец решения задания №1.3.
 
