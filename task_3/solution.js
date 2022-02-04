@@ -9,30 +9,35 @@ function renderCartItem(item) {
     // title - наименование
     // price - цена
     // count - количество
-    item = {id: 1, title: 'колобок', count: 5, price: '200.00'};
+    //item = {id: 1, title: 'колобок', count: 5, price: '200.00'};
 
     // сформируйте строку itemCountText вида:
     // количество × цена ₽ = стоимость ₽
     // например,
     // 5 × 500.00 ₽ = 2500 ₽
     // 1. Создайте переменную itemCountText, равную пустой строке
-    let itemCountText = "";
+    let itemCountText = '';
     // 2. Присвойте переменной itemCountText результат склеивания itemCountText и количества
     itemCountText = itemCountText + item.count;
-    // 3. Присвойте переменной itemCountText результат склеивания itemCountText и ` × `
-    itemCountText = itemCountText + " x ";
+    //itemCountText = `${itemCountText} ${product.count}`;
+    // 3. Присвойте переменной itemCountText результат склеивания itemCountText и 
+    itemCountText = itemCountText + ` × `;
+    //itemCountText = `${itemCountText} x`
     // 4. Присвойте переменной itemCountText результат склеивания itemCountText и цены
-    itemCountText = itemCountText + item.product;
+    itemCountText = itemCountText + item.price;
+    //itemCountText = `${itemCountText} ${product.price}`
     // 5. Присвойте переменной itemCountText результат склеивания itemCountText и ` ₽ = `
-    itemCountText = itemCountText + "  ₽ = ";
+    itemCountText = itemCountText + ` ₽ = `;
+    //itemCountText = `${itemCountText}₽`
     // 6. Создайте переменную sum и присвойте ей значение произведения количества и цены
     let sum = item.count * item.price
     // 7. Присвойте переменной itemCountText результат склеивания itemCountText и sum
-    itemCountText = itemCountText + sum; 
+    itemCountText = itemCountText + sum;
+    //itemCountText = `${itemCountText} ${sum}` 
     // 8. Присвойте переменной itemCountText результат склеивания itemCountText и ` ₽`
-    itemCountText = itemCountText + "  ₽ ";
+    itemCountText = itemCountText + ` ₽`;
 
     // Конец решения задания №3.1.
 
-    return `<div class="cart-item"><div>${product.title}</div><div>${itemCountText}</div></div>`;
+    return `<div class="cart-item"><div>${item.title}</div><div>${itemCountText}</div></div>`;
 }
