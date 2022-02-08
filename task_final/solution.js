@@ -2,7 +2,7 @@
 // Аргументы функции:
 // - имя клиента
 // - телефон клиента
-// - объект с адресом доставки: {street, house, enentrance, floor, flat}
+// - объект с адресом доставки: {street, house, entrance, floor, flat}
 // - список товаров в заказе
 // - стоимость заказа с учетом скидок и доставки
 // Как результат функции требуется вернуть JSON,
@@ -41,18 +41,19 @@ function sendRequest(name, phone, address, goods, sum) {
     //let t
     for (let i = 0; i < countOfGoods; i += 1) {
       //  data.goods.push(goods{title: title, count: i});
-     dg = goods[i]
-     t = dg.title
-     c = dg.count
+     /* dg = goods[i]
+     tit = dg.title
+     con = dg.count */
      //Let qq = goods{title: t, count: c};
      //data.goods.push(goods{title: t, count: i});
     // data.goods.push(goods[i].title)
     // data.goods.push(goods{title: t, count: c})
     //data.goods.push(t, i)
-    data.goods[i] = {title: t, count: c}
+    data.goods[i] = {title: goods[i].title, count: goods[i].count}
+    //data.goods[i] = {title: tit, con}
       }
 
-    let st = address.street;
+    /*let st = address.street;
     let h = address.house;
     let z = address.enentrance;
     let fl = address.floor;
@@ -63,7 +64,8 @@ function sendRequest(name, phone, address, goods, sum) {
     adres = adres + z + ' подъезд' + ', ';
     adres = adres + 'этаж ' + fl + ', ';
     adres = adres + 'кв ' + flt;
-    data.order.address = adres;
+    data.order.address = adres;*/
+    data.order.address = `ул. ${address.street}, дом ${address.house}, ${address.entrance} подъезд, ${address.floor} этаж, кв ${address.flat}`;
  //   data.order.sum = name + phone + address + goods + sum;
  data.order.sum = sum;
   //  data.client = 'Иван';
