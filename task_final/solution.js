@@ -2,7 +2,7 @@
 // Аргументы функции:
 // - имя клиента
 // - телефон клиента
-// - объект с адресом доставки: {street, house, entrance, floor, flat}
+// - объект с адресом доставки: {street, house, enentrance, floor, flat}
 // - список товаров в заказе
 // - стоимость заказа с учетом скидок и доставки
 // Как результат функции требуется вернуть JSON,
@@ -41,23 +41,34 @@ function sendRequest(name, phone, address, goods, sum) {
     //let t
     for (let i = 0; i < countOfGoods; i += 1) {
       //  data.goods.push(goods{title: title, count: i});
-     //t = data.goods.title
-     // n = {title: t, count: i}  
-     //t = goods.title
-     data.goods.push[goods.title[i], goods.count[i]];
-     //data.goods.push[{title: t, count: i}]
+     dg = goods[i]
+     t = dg.title
+     c = dg.count
+     //Let qq = goods{title: t, count: c};
+     //data.goods.push(goods{title: t, count: i});
+    // data.goods.push(goods[i].title)
+    // data.goods.push(goods{title: t, count: c})
+    //data.goods.push(t, i)
+    data.goods[i] = {title: t, count: c}
       }
 
-    //    data.order.address = data.order.address.street + " " + data.order.address.street.house 
-   // + " " + data.order.address.street.entrance + " " + data.order.address.street.floor 
-   // + '' + data.order.address.street.flat;
+    let st = address.street;
+    let h = address.house;
+    let z = address.enentrance;
+    let fl = address.floor;
+    let flt = address.flat;
+    let adres = ""
+    adres = 'ул. ' + st + ', ';
+    adres = adres + 'дом ' + h + ', ';
+    adres = adres + z + ' подъезд' + ', ';
+    adres = adres + 'этаж ' + fl + ', ';
+    adres = adres + 'кв ' + flt;
+    data.order.address = adres;
  //   data.order.sum = name + phone + address + goods + sum;
  data.order.sum = sum;
   //  data.client = 'Иван';
-  data.client = data.name + " " + data.phone;
-  data.goods.title = title
-  data.goods.count = count
-
+  data.client = name + " " + phone;
+  
     let jsonData = JSON.stringify({data: data});
 
     return jsonData;
